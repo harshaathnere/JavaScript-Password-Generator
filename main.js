@@ -3,7 +3,7 @@ const resultE1 = document.getElementById('result');
 const lengthE1 = document.getElementById('length'); 
 const uppercaseE1 = document.getElementById('uppercase'); 
 const lowercaseE1 = document.getElementById('lowercase'); 
-const numberE1 = document.getElementById('number'); 
+const numberE1 = document.getElementById('numbers'); 
 const symbolsE1 = document.getElementById('symbols'); 
 const generateE1 = document.getElementById('generate'); 
 const clipboardE1 = document.getElementById('clipboard'); 
@@ -17,7 +17,11 @@ const randomFun = {
 
 generateE1.addEventListener('click', ()=>{
     const length = +lengthE1.value
-    console.log( typeof length)
+    const hasLower = lowercaseE1.checked;
+    const hasUpper = uppercaseE1.checked;
+    const hasNumber = numberE1.checked;
+    const hasSymbol = symbolsE1.checked;
+    console.log(length,hasLower,hasUpper,hasNumber,hasSymbol)
      
 })
 //Generator functions
