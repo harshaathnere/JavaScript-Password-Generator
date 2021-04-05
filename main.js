@@ -1,4 +1,5 @@
 // DOM elements
+var length;
 const resultE1 = document.getElementById('result'); 
 const lengthE1 = document.getElementById('length'); 
 const uppercaseE1 = document.getElementById('uppercase'); 
@@ -16,7 +17,7 @@ const randomFun = {
 }
 
 generateE1.addEventListener('click', ()=>{
-    const length = +lengthE1.value
+     length = +lengthE1.value
     const hasLower = lowercaseE1.checked;
     const hasUpper = uppercaseE1.checked;
     const hasNumber = numberE1.checked;
@@ -33,7 +34,7 @@ clipboardE1.addEventListener('click', () => {
     return;
   }
   textarea.value = password;
-  document.appendChild(textarea);
+  document.body.appendChild(textarea);
   textarea.select();
   document.execCommand('copy');
   textarea.remove();
@@ -50,9 +51,11 @@ function generatePassword(lower,upper,number,symbol){
     const typescount = lower + upper + number + symbol;
     console.log('TypesCount' +typescount);
     const typeArr = [{lower} ,{upper},{number },{symbol} ].filter (
-      item => Object.values(item)[0] 
+      
+      item => Object.values(item)[0]
+     
       )
-    console.log('TypesCount' +typeArr);
+    console.log('Typearry' +typeArr);
 
     if(typescount === 0){
       return '';
@@ -64,7 +67,7 @@ function generatePassword(lower,upper,number,symbol){
            generatedPassword += randomFun[funcName]();
         })
     }
-    const finalPassword =generatedPassword.slice(0,length);
+    const finalPassword = generatedPassword.slice(0,length);
     return finalPassword;
 }
 //Generator functions
